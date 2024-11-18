@@ -1,5 +1,5 @@
 import React from 'react';
-import { Card, CardContent, Typography, Grid, Button } from '@material-ui/core';
+import { Card, CardContent, Typography, Grid, Button } from '@mui/material';
 
 const Events = () => {
   return (

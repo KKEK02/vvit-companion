@@ -1,5 +1,5 @@
 import React from 'react';
-import { Card, CardContent, Typography, Grid } from '@material-ui/core';
+import { Card, CardContent, Typography, Grid } from '@mui/material';
 
 const CourseDetails = () => {
   return (
@@ -24,7 +24,7 @@ const CourseDetails = () => {
               <Typography variant="h6">Subject 2</Typography>
               <Typography variant="body2">Syllabus: Topic 1, Topic 2, Topic 3</Typography>
               <Typography variant="body2">Faculty: Dr. Jane Smith</Typography>
-              <Typography variant="body2">Resources: <a href="#">Textbook</a>, <a href="#">Lecture Slides</a></Typography>
+              <Typography variant="body2">Resources: <a href="">Textbook</a>, <a href="#">Lecture Slides</a></Typography>
             </CardContent>
           </Card>
         </Grid>

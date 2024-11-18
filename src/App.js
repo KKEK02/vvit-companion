@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import { Route, Routes } from 'react-router-dom';
 import Dashboard from './components/Dashboard';
 import Attendance from './components/Attendance';
 import Marks from './components/Marks';
@@ -8,22 +8,36 @@ import CourseDetails from './components/CourseDetails';
 import Notices from './components/Notices';
 import Profile from './components/Profile';
 import './App.css';
+import { AppBar, Toolbar, Typography, Button } from '@mui/material';
+import { Link } from 'react-router-dom';
 
 function App() {
   return (
-    <Router>
-      <div className="App">
-        <Switch>
-          <Route path="/dashboard" component={Dashboard} />
-          <Route path="/attendance" component={Attendance} />
-          <Route path="/marks" component={Marks} />
-          <Route path="/events" component={Events} />
-          <Route path="/course-details" component={CourseDetails} />
-          <Route path="/notices" component={Notices} />
-          <Route path="/profile" component={Profile} />
-        </Switch>
-      </div>
-    </Router>
+    <div className="App">
+      <AppBar position="static">
+        <Toolbar>
+          <Typography variant="h6" style={{ flexGrow: 1 }}>
+            VVIT Companion
+          </Typography>
+          <Button color="inherit" component={Link} to="/">Dashboard</Button>
+          <Button color="inherit" component={Link} to="/attendance">Attendance</Button>
+          <Button color="inherit" component={Link} to="/marks">Marks</Button>
+          <Button color="inherit" component={Link} to="/events">Events</Button>
+          <Button color="inherit" component={Link} to="/course-details">Course Details</Button>
+          <Button color="inherit" component={Link} to="/notices">Notices</Button>
+          <Button color="inherit" component={Link} to="/profile">Profile</Button>
+        </Toolbar>
+      </AppBar>
+      <Routes>
+        <Route index element={<Dashboard />} />
+        <Route path="/attendance" element={<Attendance />} />
+        <Route path="/marks" element={<Marks />} />
+        <Route path="/events" element={<Events />} />
+        <Route path="/course-details" element={<CourseDetails />} />
+        <Route path="/notices" element={<Notices />} />
+        <Route path="/profile" element={<Profile />} />
+      </Routes>
+    </div>
   );
 }
 
