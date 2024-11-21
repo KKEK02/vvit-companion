@@ -64,19 +64,20 @@ function App() {
             color="inherit"
             aria-label="menu"
             onClick={toggleDrawer(true)}
+            sx={{ display: { xs: 'block', sm: 'none' } }}
           >
             <MenuIcon />
           </IconButton>
           <Typography variant="h6" style={{ flexGrow: 1 }}>
             VVIT Companion
           </Typography>
-          <Button color="inherit" component={Link} to="/">Dashboard</Button>
-          <Button color="inherit" component={Link} to="/attendance">Attendance</Button>
-          <Button color="inherit" component={Link} to="/marks">Marks</Button>
-          <Button color="inherit" component={Link} to="/events">Events</Button>
-          <Button color="inherit" component={Link} to="/course-details">Course Details</Button>
-          <Button color="inherit" component={Link} to="/notices">Notices</Button>
-          <Button color="inherit" component={Link} to="/profile">Profile</Button>
+          <Button color="inherit" component={Link} to="/" sx={{ display: { xs: 'none', sm: 'block' } }}>Dashboard</Button>
+          <Button color="inherit" component={Link} to="/attendance" sx={{ display: { xs: 'none', sm: 'block' } }}>Attendance</Button>
+          <Button color="inherit" component={Link} to="/marks" sx={{ display: { xs: 'none', sm: 'block' } }}>Marks</Button>
+          <Button color="inherit" component={Link} to="/events" sx={{ display: { xs: 'none', sm: 'block' } }}>Events</Button>
+          <Button color="inherit" component={Link} to="/course-details" sx={{ display: { xs: 'none', sm: 'block' } }}>Course Details</Button>
+          <Button color="inherit" component={Link} to="/notices" sx={{ display: { xs: 'none', sm: 'block' } }}>Notices</Button>
+          <Button color="inherit" component={Link} to="/profile" sx={{ display: { xs: 'none', sm: 'block' } }}>Profile</Button>
         </Toolbar>
       </AppBar>
       <Drawer anchor="left" open={drawerOpen} onClose={toggleDrawer(false)}>
