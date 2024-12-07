@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import { Card, CardContent, Typography, Grid, IconButton, Tooltip, Collapse, LinearProgress } from '@mui/material';
-import { ExpandMore, School, Grade } from '@mui/icons-material';
+import { Card, CardContent, Typography, Grid, IconButton, Tooltip, Collapse, LinearProgress, Breadcrumbs, Link, Fab } from '@mui/material';
+import { ExpandMore, School, Grade, ArrowUpward } from '@mui/icons-material';
 import { Bar } from 'react-chartjs-2';
 
 const Marks = () => {
@@ -8,6 +8,10 @@ const Marks = () => {
 
   const handleExpandClick = () => {
     setExpanded(!expanded);
+  };
+
+  const handleBackToTop = () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
   const data = {
@@ -25,6 +29,12 @@ const Marks = () => {
 
   return (
     <div>
+      <Breadcrumbs aria-label="breadcrumb" style={{ marginBottom: '20px' }}>
+        <Link color="inherit" href="/">
+          Home
+        </Link>
+        <Typography color="textPrimary">Marks</Typography>
+      </Breadcrumbs>
       <Typography variant="h4" gutterBottom>
         Marks
       </Typography>
@@ -174,6 +184,9 @@ const Marks = () => {
           </Card>
         </Grid>
       </Grid>
+      <Fab color="primary" aria-label="back to top" onClick={handleBackToTop} style={{ position: 'fixed', bottom: '20px', right: '20px' }}>
+        <ArrowUpward />
+      </Fab>
     </div>
   );
 };

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import { Card, CardContent, Typography, Grid, IconButton, Tooltip, Collapse, TextField, InputAdornment } from '@mui/material';
-import { ExpandMore, Search, Event, Grade, School } from '@mui/icons-material';
+import { Card, CardContent, Typography, Grid, IconButton, Tooltip, Collapse, TextField, InputAdornment, Breadcrumbs, Link, Fab } from '@mui/material';
+import { ExpandMore, Search, Event, Grade, School, ArrowUpward } from '@mui/icons-material';
 import { Bar } from 'react-chartjs-2';
 
 const Dashboard = () => {
@@ -13,6 +13,10 @@ const Dashboard = () => {
 
   const handleSearchChange = (event) => {
     setSearchQuery(event.target.value);
+  };
+
+  const handleBackToTop = () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
   const data = {
@@ -30,6 +34,12 @@ const Dashboard = () => {
 
   return (
     <div>
+      <Breadcrumbs aria-label="breadcrumb" style={{ marginBottom: '20px' }}>
+        <Link color="inherit" href="/">
+          Home
+        </Link>
+        <Typography color="textPrimary">Dashboard</Typography>
+      </Breadcrumbs>
       <Typography variant="h4" gutterBottom>
         Dashboard
       </Typography>
@@ -126,6 +136,9 @@ const Dashboard = () => {
           </Card>
         </Grid>
       </Grid>
+      <Fab color="primary" aria-label="back to top" onClick={handleBackToTop} style={{ position: 'fixed', bottom: '20px', right: '20px' }}>
+        <ArrowUpward />
+      </Fab>
     </div>
   );
 };
