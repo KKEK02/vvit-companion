@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import { Card, CardContent, Typography, Grid, IconButton, Tooltip, Collapse } from '@mui/material';
-import { Announcement, ExpandMore } from '@mui/icons-material';
+import { Card, CardContent, Typography, Grid, IconButton, Tooltip, Collapse, Breadcrumbs, Link, Fab } from '@mui/material';
+import { Announcement, ExpandMore, ArrowUpward } from '@mui/icons-material';
 
 const Notices = () => {
   const [expanded, setExpanded] = useState(false);
@@ -9,8 +9,18 @@ const Notices = () => {
     setExpanded(!expanded);
   };
 
+  const handleBackToTop = () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
   return (
     <div>
+      <Breadcrumbs aria-label="breadcrumb" style={{ marginBottom: '20px' }}>
+        <Link color="inherit" href="/">
+          Home
+        </Link>
+        <Typography color="textPrimary">Notices & Announcements</Typography>
+      </Breadcrumbs>
       <Typography variant="h4" gutterBottom>
         Notices & Announcements
       </Typography>
@@ -79,6 +89,9 @@ const Notices = () => {
           </Card>
         </Grid>
       </Grid>
+      <Fab color="primary" aria-label="back to top" onClick={handleBackToTop} style={{ position: 'fixed', bottom: '20px', right: '20px' }}>
+        <ArrowUpward />
+      </Fab>
     </div>
   );
 };
